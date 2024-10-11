@@ -1,11 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const adminController = require("../controllers/admincontroller");
+const adminController = require("../controllers/adminController");
 
-router.get("/", adminController.getAllAdmins); // Get all admins
-router.get("/:id", adminController.getAdminById); // Get admin by ID
-router.post("/", adminController.createAdmin); // Create a new admin
-router.put("/:id", adminController.updateAdmin); // Update an admin by ID
-router.delete("/:id", adminController.deleteAdmin); // Delete an admin by ID
+// Admin Sign-up
+router.post("/signup", adminController.signup);
+
+// Admin Sign-in
+router.post("/signin", adminController.signin);
+
+// Admin CRUD routes for the dashboard
+router.get("/", adminController.getAllAdmins);
+router.get("/:id", adminController.getAdminById);
+router.put("/:id", adminController.updateAdmin);
+router.delete("/:id", adminController.deleteAdmin);
 
 module.exports = router;

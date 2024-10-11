@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const AdminSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -8,8 +8,7 @@ const AdminSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    trim: true,
-    default: "",
+    unique: true,
   },
   password: {
     type: String,
@@ -19,10 +18,11 @@ const AdminSchema = new mongoose.Schema({
     type: String,
     default: "Admin",
   },
-  device_Token: {
-    type: String,
-    default: "",
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 
-module.exports = mongoose.model("Admin", AdminSchema);
+const Admin = mongoose.model("Admin", adminSchema);
+module.exports = Admin;
