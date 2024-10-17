@@ -21,7 +21,7 @@ exports.sendResetOtp = async (req, res) => {
     /* Email config here */
   });
   const mailOptions = {
-    from: "your-email@example.com",
+    from: "Samir638670@gmail.com",
     to: email,
     subject: "Password Reset OTP",
     text: `Your OTP for password reset is: ${otp}`,
